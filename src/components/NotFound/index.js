@@ -1,5 +1,7 @@
 import './index.css'
+
 const NotFound = () => {
+  console.log('inside not found')
   return (
     <div className="pageNotfound_container">
       <img

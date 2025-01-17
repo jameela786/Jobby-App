@@ -1,13 +1,12 @@
 import './index.css'
-import {MdLocationOn} from 'react-icons/md'
+import {MdLocationOn, MdStar} from 'react-icons/md'
 import {BsFillBriefcaseFill} from 'react-icons/bs'
-import {MdStar} from 'react-icons/md'
+
 const JobCard = props => {
   const {eachjobcardDetails} = props
   const {
     companyLogoUrl,
     employmentType,
-    id,
     jobDescription,
     location,
     packagePerAnnum,

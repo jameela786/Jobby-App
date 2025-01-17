@@ -1,30 +1,35 @@
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
-import {MdLocationOn} from 'react-icons/md'
+import {MdLocationOn, MdStar} from 'react-icons/md'
 import {BsFillBriefcaseFill} from 'react-icons/bs'
-import {MdStar} from 'react-icons/md'
 import {FaExternalLinkAlt} from 'react-icons/fa'
 import Header from '../Header'
 import './index.css'
+
 class JobItemDetails extends Component {
   state = {isLoading: true, jobItemList: [], apiFailed: false}
+
   componentDidMount() {
     this.getJobItemDetailsApi()
   }
+
   renderLoader = () => {
+    console.log('inside loader')
     return (
       <div className="products-loader-container" data-testid="loader">
         <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
       </div>
     )
   }
+
   handleRetry = () => {
     this.setState({isLoading: true, apiFailed: false}, () =>
       this.getJobItemDetailsApi(),
     )
     // this.renderJodItemDetail()
   }
+
   renderJodItemDetail = () => {
     const {jobItemList} = this.state
     const {jobDetails} = jobItemList
@@ -162,6 +167,7 @@ class JobItemDetails extends Component {
       </div>
     )
   }
+
   getJobItemDetailsApi = async () => {
     const {match} = this.props
     const {params} = match
@@ -235,7 +241,11 @@ class JobItemDetails extends Component {
             We cannot seem to find the page you are looking for.
           </p>
 
-          <button className="retry_btn" onClick={this.handleRetry}>
+          <button
+            className="retry_btn"
+            onClick={this.handleRetry}
+            type="button"
+          >
             Retry
           </button>
         </div>

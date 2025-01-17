@@ -1,7 +1,9 @@
 import {Link} from 'react-router-dom'
 import Header from '../Header'
 import './index.css'
-const Home = props => {
+
+const Home = () => {
+  console.log('inside home')
   return (
     <>
       <Header />
@@ -15,7 +17,9 @@ const Home = props => {
           </p>
 
           <Link to="/jobs">
-            <button className="findjob_btn">Find Jobs</button>
+            <button className="findjob_btn" type="button">
+              Find Jobs
+            </button>
           </Link>
         </div>
       </div>

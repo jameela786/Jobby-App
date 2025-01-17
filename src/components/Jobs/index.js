@@ -34,8 +34,6 @@ class Jobs extends Component {
     })
 
     const jwtToken = Cookies.get('jwt_token')
-
-    // TODO: Update the code to get products with filters applied
     const {empType, salary, jobSearch} = this.state
     const apiUrl = `https://apis.ccbp.in/jobs?employment_type=${empType}&minimum_package=${salary}&search=${jobSearch}`
     // const apiUrl = `https://apis.ccloyment_typnimum_pacrch=${jobSearch}`
@@ -74,30 +72,15 @@ class Jobs extends Component {
       this.setState({apiStatus: apiStatusConstants.failure})
     }
   }
-  renderJobs() {
-    const {apiStatus} = this.state
-    console.log('renderJobs api status=', apiStatus)
-    switch (apiStatus) {
-      case apiStatusConstants.success:
-        return this.renderjobsList()
-      case apiStatusConstants.failure:
-        return this.renderApiFailed()
-      case apiStatusConstants.inProgress:
-        return this.renderLoader()
-      default:
-        return null
-    }
-  }
+
   handleRetry = () => {
     this.setState({isLoading: false})
     this.getJobs()
   }
-  renderjobsList = () => {
-    const {jobsList, apiFailed, isLoading, jobSearch} = this.state
-    const {id} = jobsList
 
+  renderjobsList = () => {
+    const {jobsList} = this.state
     console.log('=====jobslist===', jobsList, jobsList.length === 0)
-    // TODO: Add No Products View
 
     return (
       <div className="all-products-container">
@@ -137,8 +120,9 @@ class Jobs extends Component {
       <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
     </div>
   )
+
   renderApiFailed = () => {
-    const {jobSearch} = this.state
+    console.log('inside job fail')
     return (
       <div className="Mainapifailures_container">
         <div className="failureApi_container">
@@ -152,7 +136,11 @@ class Jobs extends Component {
             We cannot seem to find the page you are looking for.
           </p>
 
-          <button className="retry_btn" onClick={this.handleRetry}>
+          <button
+            className="retry_btn"
+            onClick={this.handleRetry}
+            type="button"
+          >
             Retry
           </button>
         </div>
@@ -160,46 +148,53 @@ class Jobs extends Component {
     )
   }
 
-  // TODO: Add failure view
   onSelectSalaryRange = onSelectSalaryRange => {
     console.log('salary-', onSelectSalaryRange)
     this.setState({salary: onSelectSalaryRange}, this.getJobs)
   }
+
   onSelectEmploymentType = onSelectEmploymentType => {
     console.log('empType-------', onSelectEmploymentType)
     this.setState({empType: onSelectEmploymentType}, this.getJobs)
   }
 
   onSearchFilter = event => {
-    // if (event.key === 'Enter') {
-    //   this.setState({jobSearch: event.target.value}, this.getJobs)
-    //   console.log('evetn trigerred enter', event.target.value)
-    // }
-    this.setState({jobSearch: event.target.value}) // Update state with every key press
-    // if (event.key === 'Enter') {
-    //   this.getJobs()
-    // }
+    this.setState({jobSearch: event.target.value})
   }
+
   onSearchFilterKeyDown = event => {
     if (event.key === 'Enter') {
       this.getJobs()
     }
   }
-  OnSearchClick = event => {
+
+  OnSearchClick = () => {
     this.getJobs()
   }
 
+  renderJobs() {
+    const {apiStatus} = this.state
+    console.log('renderJobs api status=', apiStatus)
+    switch (apiStatus) {
+      case apiStatusConstants.success:
+        return this.renderjobsList()
+      case apiStatusConstants.failure:
+        return this.renderApiFailed()
+      case apiStatusConstants.inProgress:
+        return this.renderLoader()
+      default:
+        return null
+    }
+  }
+
   render() {
-    const {isLoading, onSelectSalaryRange, onSelectEmploymentType, jobSearch} =
-      this.state
+    const {isLoading, jobSearch} = this.state
     const {employmentTypesList, salaryRangesList} = this.props
     console.log('isloading==', isLoading)
     return (
       <>
         <Header />
         <div className="all-products-section">
-          {/* TODO: Update the below element profile filter should be added here*/}
-
           <ul className="All_profile_Filter_container">
             <FiltersGroup
               employmentTypesList={employmentTypesList}

@@ -2,28 +2,34 @@ import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 import './index.css'
+
 class FiltersGroup extends Component {
   state = {
-    selectEmpList: '',
     isLoading: true,
     profileList: [],
     profileApiFailed: false,
   }
+
   checkboxList = []
+
   componentDidMount() {
     this.getProfileDetails()
   }
+
   handleRetry = () => {
     this.setState({isLoading: true})
     this.getProfileDetails()
   }
+
   renderLoader = () => {
+    console.log('loader inside')
     return (
       <div className="products-loader-container" data-testid="loader">
         <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
       </div>
     )
   }
+
   getProfileDetails = async () => {
     // this.setState({isLoading: true})
     const jwtToken = Cookies.get('jwt_token')
@@ -60,6 +66,7 @@ class FiltersGroup extends Component {
     const salaryvalue = event.target.value
     onSelectSalaryRange(salaryvalue)
   }
+
   getCheckboxvalue = event => {
     const {onSelectEmploymentType} = this.props
     const checkboxvalue = event.target.value
@@ -69,7 +76,6 @@ class FiltersGroup extends Component {
         this.checkboxList.push(checkboxvalue)
       }
     } else {
-      // Remove value from checkboxList if unchecked
       const index = this.checkboxList.indexOf(checkboxvalue)
       if (index > -1) {
         this.checkboxList.splice(index, 1)
@@ -77,10 +83,11 @@ class FiltersGroup extends Component {
     }
     const checkboxstring = this.checkboxList.join(',')
 
-    this.setState({selectEmpList: checkboxstring})
+    // this.setState({selectEmpList: checkboxstring})
     onSelectEmploymentType(checkboxstring)
     console.log('getCheckboxvalue:', this.checkboxList, checkboxstring)
   }
+
   render() {
     const {salaryRangesList, employmentTypesList} = this.props
     const {profileList, isLoading, profileApiFailed} = this.state
@@ -98,7 +105,11 @@ class FiltersGroup extends Component {
         <div className="Profile_Filter_container">
           {profileApiFailed && (
             <div className="retrybtn_container">
-              <button className="retryBtn" onClick={this.handleRetry}>
+              <button
+                className="retryBtn"
+                type="button"
+                onClick={this.handleRetry}
+              >
                 Retry
               </button>{' '}
             </div>
