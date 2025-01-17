@@ -1,0 +1,287 @@
+* {
+  box-sizing: border-box;
+}
+.retry_btn {
+  background-color: #4f46e5;
+  color: #ffffff;
+  width: 110px;
+  height: 30px;
+  border: 0px solid;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+.all-products-section {
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+}
+.All_profile_Filter_container {
+  margin-left: 30px;
+  width: 90%;
+  /* border: 2px solid red; */
+  margin-top: 15px;
+  margin-right: 0px;
+}
+@media screen and (min-width: 768px) {
+  .all-products-section {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .All_profile_Filter_container {
+    margin-left: 30px;
+    width: 30%;
+    /* border: 2px solid green; */
+    margin-right: 0px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .all-products-container {
+    /* margin-left: 30px; */
+    margin-left: 10px;
+    width: 85%;
+  }
+}
+.products-heading {
+  color: #475569;
+  font-family: 'Roboto';
+  font-size: 20px;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 768px) {
+  .products-heading {
+    font-size: 32px;
+  }
+}
+
+.products-loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+  height: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .products-loader-container {
+    width: 70%;
+    height: auto;
+  }
+}
+.jobcardLink {
+  text-decoration: none;
+}
+.products-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  justify-content: center;
+  /* margin-left: 42px; */
+}
+.filtergroup_container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+}
+.filterbox_container {
+  display: flex;
+  margin-top: 32px;
+  width: 80%;
+  margin-left: 72px;
+  border: 2px solid red;
+}
+.searchcard_container {
+  width: 85%;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* Base styling for search container */
+.search_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border: 2px solid #272727;
+  border-radius: 5px;
+  padding: 0; /* Ensure no extra padding */
+  background-color: transparent;
+  overflow: hidden; /* Prevent overflow spacing */
+}
+
+/* Styling for the input field container */
+.input_field_container {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 10px; /* Adjust padding to suit */
+}
+
+/* Styling for the input field */
+.input_field {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 8px 0; /* Control vertical padding */
+  font-size: 16px;
+  color: #ffffff;
+}
+
+/* Styling for search icon container */
+.searchIcon_container {
+  background-color: #272727;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  height: 100%;
+  cursor: pointer;
+  outline: none;
+  border: 0px solid;
+}
+
+/* Styling for icon inside the container */
+.search_img {
+  font-size: 20px;
+}
+
+/* Responsive styling for small screens */
+@media (max-width: 576px) {
+  .search_container {
+    flex-direction: row;
+  }
+  .input_field_container {
+    padding: 0 5px;
+  }
+  .searchIcon_container {
+    cursor: pointer;
+    outline: none;
+    padding: 5px;
+  }
+}
+
+/* Additional adjustments for medium screens */
+@media (min-width: 576px) and (max-width: 768px) {
+  .search_container {
+    padding: 0;
+  }
+  .input_field_container {
+    padding: 0 8px;
+  }
+}
+
+.searIcon_container {
+  background-color: #272727;
+  color: #ffffff;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  /* padding: 5px; */
+  /* border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px; */
+}
+.input_field_container {
+  width: 100%;
+  height: 35px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+.input_field {
+  border: 0px solid;
+  background-color: transparent;
+  outline: none;
+  width: 100%;
+  color: #ffffff;
+}
+.input_field::placeholder {
+  font-weight: 600;
+  color: #272727;
+}
+.search_img {
+  font-size: 24px;
+}
+
+.failureApi_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.failureApi_img {
+  width: 350px;
+  height: auto;
+}
+.failureapi_mainhead {
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5rem;
+}
+.failureapi_subhead {
+  color: #f8fafc;
+  font-weight: 500;
+  /* width: 40vw; */
+  text-align: center;
+  font-size: 1rem;
+}
+
+.productfailure_img {
+  width: 100%;
+  height: auto;
+}
+.productfailure_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+@media (max-width: 576px) {
+  .search_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #272727;
+    background-color: transparent;
+    padding: 0px;
+
+    width: 100%;
+  }
+  .searIcon_container {
+    background-color: #272727;
+    color: #ffffff;
+    /* height: 38px; */
+    /* padding: 5px; */
+    margin-top: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid red;
+    padding: 0px;
+    width: 100px;
+    height: 100%;
+  }
+  .searchIcon_container {
+    border: 2px solid green;
+    background-color: #475569;
+    cursor: pointer;
+    outline: none;
+  }
+}
+.Mainapifailures_container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}

@@ -1,0 +1,94 @@
+.Profile_Filter_container {
+  display: flex;
+  flex-direction: column;
+  background-color: #000000;
+}
+.profile_container {
+  width: 100%;
+  background-image: url(https://assets.ccbp.in/frontend/react-js/profile-bg.png);
+  background-size: cover;
+  height: 225px;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 10px;
+  border-radius: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.profile_img {
+  width: 50px;
+  height: 50px;
+}
+.profile_name {
+  color: #6366f1;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.profile_bio {
+  font-size: 1rem;
+  color: #7e858e;
+}
+.line_break {
+  border-color: #f1f5f9;
+  background-color: #f1f5f9;
+  width: 100%;
+}
+.employeeType_header {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #f1f5f9;
+}
+.checkbox_container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.checkbox_label {
+  font-weight: 400;
+  font-size: 1rem;
+  color: #f1f5f9;
+  line-height: 0.1;
+  margin-left: 2px;
+}
+.checkbox_field {
+  width: 15px; /* Set width */
+  height: 15px; /* Set height */
+  background-color: white;
+  border: 2px solid transparent; /* No visible border */
+  border-radius: 4px; /* Optional: make it rounded */
+  outline: none;
+  cursor: pointer;
+}
+.retryBtn {
+  width: 120px;
+  height: 30px;
+  background-color: #6366f1;
+  color: #ffffff;
+  border: 0px solid;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
+}
+.retrybtn_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.products-loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .products-loader-container {
+    width: 70%;
+    height: auto;
+  }
+}
